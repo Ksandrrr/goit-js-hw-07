@@ -30,10 +30,11 @@ function creatElm(event) {
   const instance = basicLightbox
     .create(`<img src="${originalImage}" alt="${originalDescription}"></img>`)
   instance.show()
-  document.addEventListener(`keydown`, closeElm)
+  document.addEventListener(`keydown`, closeElm, {once: true})
   function closeElm(event) {
     if (event.code === `Escape`) {
       instance.close()
+      console.log(`click`)
     }
   }
   }
